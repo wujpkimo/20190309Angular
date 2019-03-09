@@ -3,7 +3,7 @@ import { PostList2 } from './postlist2';
 import { HttpClient } from '@angular/common/http';
 import { Articles } from './articles';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, debounceTime } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -77,6 +77,11 @@ export class ArticlesService {
     return this.httpClient.get('https://conduit.productionready.io/api/articles').pipe(
       map((response: Articles) => response.articles)
     );
+    // of('').pipe() {
+    //   debounceTime(1000),
+    //   filter(keyword => keyword.lens >= 3),
+    //   distince()
+    // };
   }
   searchAlticles($event: string) {
     console.log($event);
@@ -90,4 +95,6 @@ export class ArticlesService {
   searchArticles(keyword: string) {
     this.keyword = keyword;
   }
+
+
 }
