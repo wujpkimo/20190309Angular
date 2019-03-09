@@ -78,7 +78,7 @@ export class ArticlesService {
       map((response: Articles) => response.articles)
     );
   }
-  searchAlticles($event) {
+  searchAlticles($event: string) {
     console.log($event);
     if ($event) {
       this.list = this.list.filter(alticle => alticle.title.indexOf($event) !== -1);
