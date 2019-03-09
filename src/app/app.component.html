@@ -1,8 +1,8 @@
-<app-header (keywordChange)="articlesService.searchAlticles($event)"></app-header>
+<app-header (keywordChange)="searchAlticles($event)"></app-header>
 <div class="home-page">
   <div class="banner">
     <div class="container">
-      <h1 class="logo-font" [title]="title">{{benner1}}</h1>
+      <h1 class="logo-font" [title]="title">{{ benner1 }}</h1>
       <p [innerHTML]="subTitle"></p>
     </div>
   </div>

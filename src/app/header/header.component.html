@@ -2,7 +2,8 @@
   <div class="container">
     <a class="navbar-brand" href="index.html" [ngClass]="{'highLight': highLight}"
       [ngStyle]="{'font-size.px': fontSize}">conduit</a>
-    <input class="form-control form-control-sm search-input" type="text" placeholder="Keyword" [(ngModel)]="keyword">
+    <input class="form-control form-control-sm search-input" type="text" placeholder="Keyword" [(ngModel)]="keyword"
+      (keyup.Enter)="action($event)">
     <button class="btn btn-sm btn-primary" (click)="action($event)">
       <i class="ion-search"></i>
     </button>

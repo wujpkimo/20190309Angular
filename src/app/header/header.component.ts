@@ -22,13 +22,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  action($event) {
+  action($event: MouseEvent) {
     // this.highLight = true;
     // this.label = 'get action click!!';
     // this.fontSize++;
-    // this.keywordChange.emit(this.keyword);
+    this.keywordChange.emit(this.keyword);
     // this.articlesService.searchAlticles(this.keyword);
-    this.articlesService.keyword = this.keyword;
+    // this.articlesService.keyword = this.keyword;
     console.log(this.keyword);
   }
 
