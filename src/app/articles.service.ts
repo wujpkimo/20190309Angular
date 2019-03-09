@@ -63,6 +63,8 @@ export class ArticlesService {
   }];
 
   list = this.originalList;
+
+  keyword: string;
   constructor(private httpClient: HttpClient) { }
 
   loadArticles() {
@@ -83,5 +85,9 @@ export class ArticlesService {
     } else {
       this.loadArticles();
     }
+  }
+
+  searchArticles(keyword: string) {
+    this.keyword = keyword;
   }
 }

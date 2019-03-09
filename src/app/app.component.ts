@@ -24,6 +24,10 @@ export class AppComponent implements OnInit {
   }
   // list: PostList2[];
 
+  get keyword() {
+    return this.articlesService.keyword;
+  }
+
   constructor(public articlesService: ArticlesService) {
     // this.list = this.articlesService.list;
   }
