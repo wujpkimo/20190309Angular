@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostList2 } from './postlist2';
 import { ArticlesService } from './articles.service';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent implements OnInit {
 
   title = 'demo';
 
+  list$: Observable<PostList2[]>;
 
   get list() {
     return this.articlesService.list;
@@ -26,6 +29,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articlesService.loadArticles();
+    // this.articlesService.loadArticles();
+    this.list$ = this.articlesService.getArticles();
+  }
+
+  searchAlticles($event) {
+    console.log($event);
+    if ($event) {
+      this.list$ = this.list$.pipe(map(response => response.filter(alticle => alticle.title.indexOf($event) !== -1)));
+    } else {
+      this.list$ = this.articlesService.getArticles();
+    }
   }
 }

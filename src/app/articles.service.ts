@@ -71,9 +71,9 @@ export class ArticlesService {
     });
   }
 
-  getArticles(): Observable<any[]> {
+  getArticles(): Observable<PostList2[]> {
     return this.httpClient.get('https://conduit.productionready.io/api/articles').pipe(
-      map((response: any) => response.articles)
+      map((response: Articles) => response.articles)
     );
   }
   searchAlticles($event) {
